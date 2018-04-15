@@ -15,7 +15,7 @@ if sys.version_info.major < 3 or sys.version_info.minor < 5:
     sys.exit(1)
 
 
-INSTALL_REQUIRES = ['imblearn']
+INSTALL_REQUIRES = ['imbalanced-learn>=0.3.3']
 TEST_REQUIRES = ['pytest', 'coverage', 'pytest-cov', 'pandas', 'pdutil',
                  'scikit-learn']
 
