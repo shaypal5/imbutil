@@ -57,10 +57,10 @@ class MinMaxRandomSampler(SamplerMixin):
                 over_dict[lbl] = self.min_freq
             elif count > self.max_freq:
                 under_dict[lbl] = self.max_freq
-                over_dict = self.max_freq
+                over_dict[lbl] = self.max_freq
             else:
-                under_dict = count
-                over_dict = count
+                under_dict[lbl] = count
+                over_dict[lbl] = count
         self.under_sampler = RandomUnderSampler(ratio=under_dict)
         self.over_sampler = RandomOverSampler(ratio=over_dict)
         return self
