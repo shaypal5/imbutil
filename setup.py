@@ -16,7 +16,8 @@ if sys.version_info.major < 3 or sys.version_info.minor < 5:
 
 
 INSTALL_REQUIRES = ['imblearn']
-TEST_REQUIRES = ['pytest', 'coverage', 'pytest-cov', 'pandas', 'pdutil']
+TEST_REQUIRES = ['pytest', 'coverage', 'pytest-cov', 'pandas', 'pdutil',
+                 'scikit-learn']
 
 with open('README.rst') as f:
     README = f.read()
