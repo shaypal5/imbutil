@@ -86,10 +86,10 @@ Created by Shay Palachy (shay.palachy@gmail.com).
 
 
 .. |PyPI-Status| image:: https://img.shields.io/pypi/v/imbutil.svg
-  :target: https://pypi.python.org/pypi/imbutil
+  :target: https://pypi.org/project/imbutil
 
 .. |PyPI-Versions| image:: https://img.shields.io/pypi/pyversions/imbutil.svg
-   :target: https://pypi.python.org/pypi/imbutil
+   :target: https://pypi.org/project/imbutil
 
 .. |Build-Status| image:: https://travis-ci.org/shaypal5/imbutil.svg?branch=master
   :target: https://travis-ci.org/shaypal5/imbutil
