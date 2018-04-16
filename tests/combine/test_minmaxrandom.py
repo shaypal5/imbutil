@@ -4,7 +4,15 @@ import numpy as np
 import pandas as pd
 from pdutil.transform import x_y_by_col_lbl
 
+# for pipeline testing
+from imblearn import pipeline
+from sklearn.svm import LinearSVC
+from sklearn.model_selection import train_test_split
+
 from imbutil.combine import MinMaxRandomSampler
+
+
+_RANDOM_STATE = 83
 
 _DATA1 = [
     [23, 'Jo', 1],
@@ -32,7 +40,8 @@ def _df1():
 def test_basic_minmax_sample():
     print("testing MinMaxRandomSampler fit_sample...")
     df = _df1()
-    sampler = MinMaxRandomSampler(min_freq=3, max_freq=4)
+    sampler = MinMaxRandomSampler(
+        min_freq=3, max_freq=4, random_state=_RANDOM_STATE)
     X, y = x_y_by_col_lbl(df, 'label')
     new_X, new_y = sampler.fit_sample(X, y)
     print(new_X)
@@ -41,6 +50,25 @@ def test_basic_minmax_sample():
     assert label_counts[1] == 3
     assert label_counts[2] == 4
     assert label_counts[3] == 4
+
+
+def test_minmax_pipeline():
+    sampler = MinMaxRandomSampler(
+        min_freq=3, max_freq=4, random_state=_RANDOM_STATE)
+    clf = LinearSVC(random_state=_RANDOM_STATE)
+    pline = pipeline.make_pipeline(sampler, clf)
+
+    df = _df1()
+    X, y = x_y_by_col_lbl(df, 'label')
+    labels = np.unique(y)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, random_state=_RANDOM_STATE)
+
+    pipeline.fit(X_train, y_train)
+    y_pred_bal = pline.predict(X_test)
+    assert len(y_pred_bal) == len(y_test)
+    for x in y_pred_bal:
+        assert x in labels
 
 
 if __name__ == '__main__':

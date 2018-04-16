@@ -20,11 +20,17 @@ class MinMaxRandomSampler(SamplerMixin):
     max_freq : int
         The maximum frequency for a class after sampling. All classes with
         more samples are under-sampled to have this number of samples.
+    random_state : int, RandomState instance or None, optional (default=None)
+        If int, random_state is the seed used by the random number generator;
+        If RandomState instance, random_state is the random number generator;
+        If None, the random number generator is the RandomState instance used
+        by np.random.
     """
 
-    def __init__(self, min_freq, max_freq):
+    def __init__(self, min_freq, max_freq, random_state=None):
         self.min_freq = min_freq
         self.max_freq = max_freq
+        self.random_state = random_state
         self.ratio = max_freq / min_freq
 
     def fit(self, X, y):
@@ -61,8 +67,10 @@ class MinMaxRandomSampler(SamplerMixin):
             else:
                 under_dict[lbl] = count
                 over_dict[lbl] = count
-        self.under_sampler = RandomUnderSampler(ratio=under_dict)
-        self.over_sampler = RandomOverSampler(ratio=over_dict)
+        self.under_sampler = RandomUnderSampler(
+            ratio=under_dict, random_state=self.random_state)
+        self.over_sampler = RandomOverSampler(
+            ratio=over_dict, random_state=self.random_state)
         return self
 
     def _sample(self, X, y):
