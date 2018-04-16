@@ -37,7 +37,7 @@ def test_basic_minmax_sample():
     new_X, new_y = sampler.fit_sample(X, y)
     print(new_X)
     print(new_y)
-    label_counts = np.bincount(y)
+    label_counts = np.bincount(new_y)
     assert label_counts[1] == 3
     assert label_counts[2] == 4
     assert label_counts[3] == 4
