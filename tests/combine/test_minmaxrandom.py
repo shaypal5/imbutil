@@ -64,7 +64,7 @@ def test_minmax_pipeline():
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, random_state=_RANDOM_STATE)
 
-    pipeline.fit(X_train, y_train)
+    pline.fit(X_train, y_train)
     y_pred_bal = pline.predict(X_test)
     assert len(y_pred_bal) == len(y_test)
     for x in y_pred_bal:
