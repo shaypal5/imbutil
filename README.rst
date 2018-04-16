@@ -2,7 +2,7 @@ imbutil
 #######
 |PyPI-Status| |PyPI-Versions| |Build-Status| |Codecov| |LICENCE|
 
-Additions to the ``imblearn`` package.
+Additions to the ``imbalanced-learn`` package.
 
 .. code-block:: python
 
@@ -19,6 +19,13 @@ Installation
 .. code-block:: bash
 
   pip install imbutil
+
+
+Additionally, the ``MinMaxRandomSampler``, in addition to ``RandomUnderSampler`` and ``RandomOverSampler`` from ``imbalanced-learn``, can technically be used with non-numeric data. However, the current implementation of ``imbalanced-learn`` forces a check for numeric data for all samplers. If you want to bypass this limitation, I have a fork of the project which does not force data to be numeric. You can install it with:
+
+.. code-block:: bash
+
+    pip install git+https://github.com/shaypal5/imbalanced-learn.git@f6adc562fafdc2198931873799e725e5abdd65a1
 
 
 Basic Use
