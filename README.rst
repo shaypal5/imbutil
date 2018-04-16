@@ -76,6 +76,8 @@ The project is documented using the `numpy docstring conventions`_, which were c
 .. _`numpy docstring conventions`: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 .. _`these conventions`: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 
+Additionally, if you update this ``README.rst`` file,  use ``python setup.py checkdocs`` to validate it compiles.
+
 
 Credits
 =======
