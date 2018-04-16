@@ -16,8 +16,14 @@ if sys.version_info.major < 3 or sys.version_info.minor < 5:
 
 
 INSTALL_REQUIRES = ['imbalanced-learn>=0.3.3']
-TEST_REQUIRES = ['pytest', 'coverage', 'pytest-cov', 'pandas', 'pdutil',
-                 'scikit-learn']
+TEST_REQUIRES = [
+    # testing and coverage
+    'pytest', 'coverage', 'pytest-cov',
+    # required for the tests, not by the package
+    'pandas', 'pdutil', 'scikit-learn',
+    # to be able to run `python setup.py checkdocs`
+    'collective.checkdocs', 'pygments',
+]
 
 with open('README.rst') as f:
     README = f.read()

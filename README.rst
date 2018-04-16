@@ -1,5 +1,5 @@
 imbutil
-######
+#######
 |PyPI-Status| |PyPI-Versions| |Build-Status| |Codecov| |LICENCE|
 
 Additions to the ``imblearn`` package.
