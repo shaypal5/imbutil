@@ -37,6 +37,29 @@ def _df1():
     )
 
 
+_DATA2 = [
+    [23, 56, 1],
+    [33, 98, 1],
+    [10, 77, 2],
+    [82, 10, 2],
+    [70, 65, 2],
+    [72, 28, 2],
+    [14, 22, 3],
+    [81, 90, 3],
+    [73, 35, 3],
+    [79, 35, 3],
+    [44, 83, 3],
+    [78, 40, 3],
+]
+
+
+def _df2():
+    return pd.DataFrame(
+        data=_DATA2,
+        columns=['age', 'num_legs', 'label'],
+    )
+
+
 def test_basic_minmax_sample():
     print("testing MinMaxRandomSampler fit_sample...")
     df = _df1()
@@ -58,7 +81,7 @@ def test_minmax_pipeline():
     clf = LinearSVC(random_state=_RANDOM_STATE)
     pline = pipeline.make_pipeline(sampler, clf)
 
-    df = _df1()
+    df = _df2()
     X, y = x_y_by_col_lbl(df, 'label')
     labels = np.unique(y)
     X_train, X_test, y_train, y_test = train_test_split(
