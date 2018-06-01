@@ -6,7 +6,11 @@ Additions to the ``imbalanced-learn`` package.
 
 .. code-block:: python
 
-  from imbutil.combine import MinMaxRandomSampler
+  from imbutil.combine import MinMaxRandomSampler; from imblearn import pipeline;
+  # oversampling minority classes to 100 and undersampling majority classes to 800
+  sampler = MinMaxRandomSampler(min_freq=100, max_freq=800)
+  sampling_clf = pipeline.make_pipeline(sampler, inner_clf)
+  
 
 .. contents::
 
