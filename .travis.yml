@@ -2,15 +2,22 @@ language: python
 python:
 - '3.5'
 - '3.6'
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      sudo: true
 # notifications:
 #   email:
 #     on_success: change
 #     on_failure: always
 before_install:
+  - pip install --upgrade pip
+  - pip install --upgrade pytest
   - pip install codecov
   - pip install git+https://github.com/shaypal5/imbalanced-learn.git@f6adc562fafdc2198931873799e725e5abdd65a1
 install:
   - pip install ".[test]"
-script: pytest --cov=imbutil
+script: pytest
 after_success:
   - codecov
