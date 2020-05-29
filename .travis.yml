@@ -14,7 +14,7 @@ matrix:
 before_install:
   - pip install --upgrade pip
   - pip install --upgrade pytest
-  - pip instal six
+  - pip install six
   - pip install codecov
   - pip install git+https://github.com/shaypal5/imbalanced-learn.git@f6adc562fafdc2198931873799e725e5abdd65a1
 install:
