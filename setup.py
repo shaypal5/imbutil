@@ -20,7 +20,7 @@ TEST_REQUIRES = [
     # testing and coverage
     'pytest', 'coverage', 'pytest-cov',
     # required for the tests, not by the package
-    'pandas', 'pdutil', 'scikit-learn',
+    'pandas', 'pdutil', 'scikit-learn<=0.22',
     # to be able to run `python setup.py checkdocs`
     'collective.checkdocs', 'pygments',
 ]
